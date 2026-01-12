@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <!-- =====================================================
+         BASIC META
+    ====================================================== -->
+    <meta charset="UTF-8">
+    <title>Contact Us | ANVI COMPUTER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- =====================================================
+         FAVICON
+    ====================================================== -->
+    <link rel="icon" type="image/png" href="LOGO.png">
+
+    <!-- =====================================================
+         GLOBAL CSS
+    ====================================================== -->
+    <link rel="stylesheet" href="CSS/css.css">
+
+    <!-- =====================================================
+         DATA + HEADER + FOOTER
+    ====================================================== -->
+    <script src="JS/data.js"></script>
+    <script src="JS/header.js"></script>
+    <script src="JS/footer.js"></script>
+
+    <!-- =====================================================
+         GLOBAL JS
+    ====================================================== -->
+    <script src="JS/js.js" defer></script>
+</head>
+
+<body>
+
+<!-- HEADER AUTO LOADED -->
+
+<main class="content">
+
+    <!-- ================= HERO ================= -->
+    <section class="hero">
+        <h1>Contact ANVI COMPUTER</h1>
+        <p>We are here to help you</p>
+    </section>
+
+    <!-- ================= CONTACT INFO ================= -->
+    <section class="grid">
+
+        <!-- ADDRESS -->
+        <div class="card">
+            <div class="card-icon">📍</div>
+            <h3>Our Address</h3>
+            <p>
+                B23/45-B Sharda Nagar Colony<br>
+                Near Santosh Mata Mandir<br>
+                (Update if needed)
+            </p>
+        </div>
+
+        <!-- PHONE -->
+        <div class="card">
+            <div class="card-icon">📞</div>
+            <h3>Phone</h3>
+            <p>
+                7007159332<br>
+                8881666006
+            </p>
+            <span class="card-btn"
+                  onclick="openWhatsApp('Hello, I want to contact ANVI COMPUTER')">
+                WhatsApp
+            </span>
+        </div>
+
+        <!-- EMAIL -->
+        <div class="card">
+            <div class="card-icon">📧</div>
+            <h3>Email</h3>
+            <p>
+                support@anvicomputer.com<br>
+                (change if needed)
+            </p>
+        </div>
+
+        <!-- TIMING -->
+        <div class="card">
+            <div class="card-icon">⏰</div>
+            <h3>Working Hours</h3>
+            <p>
+                Monday – Saturday<br>
+                9:00 AM – 7:00 PM
+            </p>
+        </div>
+
+    </section>
+
+    <!-- ================= CTA ================= -->
+    <section class="grid">
+        <div class="card">
+            <div class="card-icon">💬</div>
+            <h3>Quick Help</h3>
+            <p>
+                Message us on WhatsApp for
+                fast response and support.
+            </p>
+            <span class="card-btn"
+                  onclick="openWhatsApp('Hello, I need help with a form or service.')">
+                WhatsApp
+            </span>
+        </div>
+    </section>
+
+</main>
+
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp"
+   href="https://wa.me/917007159332"
+   target="_blank">
+   💬 WhatsApp
+</a>
+
+</body>
+</html>
