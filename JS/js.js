@@ -184,33 +184,46 @@ function changeImage(el){
   const main = document.getElementById("mainProductImage");
   if(main) main.src = el.src;
 
-  // Active thumbnail highlight
-  document.querySelectorAll(".thumb-track img")
+  document
+    .querySelectorAll(".thumb-track img")
     .forEach(img => img.classList.remove("active"));
 
   el.classList.add("active");
 }
 
+
+
+
 /* =====================================================
    THUMBNAIL ARROW SLIDER
 ===================================================== */
-
 let thumbIndex = 0;
 
-function scrollThumbs(direction) {
+function scrollThumbs(direction){
   const track = document.getElementById("thumbTrack");
   if (!track) return;
 
-  const thumbs = track.children.length;
-  const visible = 4;
-  const thumbHeight = 80;
+  const isMobile = window.innerWidth <= 768;
 
-  const maxIndex = Math.max(0, thumbs - visible);
+  if (isMobile) {
+    /* MOBILE → horizontal scroll */
+    const thumbWidth = track.children[0].offsetWidth + 12;
+    track.parentElement.scrollBy({
+      left: direction * thumbWidth,
+      behavior: "smooth"
+    });
+  } else {
+    /* DESKTOP → vertical scroll */
+    const thumbHeight = 80;
+    const visible = 4;
+    const maxIndex = Math.max(0, track.children.length - visible);
 
-  thumbIndex += direction;
-  thumbIndex = Math.max(0, Math.min(thumbIndex, maxIndex));
+    thumbIndex += direction;
+    if (thumbIndex < 0) thumbIndex = 0;
+    if (thumbIndex > maxIndex) thumbIndex = maxIndex;
 
-  track.style.transform = `translateY(-${thumbIndex * thumbHeight}px)`;
+    track.style.transform = `translateY(-${thumbIndex * thumbHeight}px)`;
+  }
 }
 
 /* =====================================================
@@ -446,3 +459,7 @@ function updateThemeButton(){
     ? "☀ Light"
     : "🌙 Gray";
 }
+document.addEventListener("DOMContentLoaded", () => {
+  const firstThumb = document.querySelector(".thumb-track img");
+  if(firstThumb) firstThumb.classList.add("active");
+});
