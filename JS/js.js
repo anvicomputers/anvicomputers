@@ -180,11 +180,15 @@ document.addEventListener("click", e => {
    PRODUCT IMAGE CHANGE (SINGLE SOURCE)
 ===================================================== */
 
-function changeImage(el) {
+function changeImage(el){
   const main = document.getElementById("mainProductImage");
-  if (main && el && el.src) {
-    main.src = el.src;
-  }
+  if(main) main.src = el.src;
+
+  // Active thumbnail highlight
+  document.querySelectorAll(".thumb-track img")
+    .forEach(img => img.classList.remove("active"));
+
+  el.classList.add("active");
 }
 
 /* =====================================================
