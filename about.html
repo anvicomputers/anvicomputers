@@ -1,0 +1,161 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>About Us | ANVI COMPUTER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <!-- Favicon -->
+    <link rel="icon" type="image/png" href="LOGO.png">
+
+    <!-- Global CSS -->
+    <link rel="stylesheet" href="CSS/css.css">
+
+    <!-- Global System -->
+    <script src="JS/data.js"></script>
+    <script src="JS/header.js"></script>
+    <script src="JS/footer.js"></script>
+    <script src="JS/js.js" defer></script>
+</head>
+
+<body>
+
+<main class="content">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <h1>About ANVI COMPUTER</h1>
+    <p>Trusted Cyber Café & Government Service Center</p>
+</section>
+
+<!-- ================= ABOUT DETAILS ================= -->
+<section class="grid">
+
+    <div class="card">
+        <div class="card-icon">🏢</div>
+        <h3>Who We Are</h3>
+        <p>
+            ANVI COMPUTER is a professional cyber café and digital service center
+            providing fast, reliable, and affordable online services to students,
+            individuals, and businesses.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">🛠️</div>
+        <h3>What We Do</h3>
+        <p>
+            We provide PAN Card services, Aadhaar services, online form filling,
+            government services, ticket booking, PVC card printing, and computer sales.
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">⭐</div>
+        <h3>Why Choose Us</h3>
+        <p>
+            ✔ Certified service provider<br>
+            ✔ Error-free & transparent work<br>
+            ✔ Fast WhatsApp support<br>
+            ✔ Trusted by hundreds of customers
+        </p>
+    </div>
+
+    <div class="card">
+        <div class="card-icon">🎯</div>
+        <h3>Our Mission</h3>
+        <p>
+            To make digital and government services simple,
+            accessible, and affordable for everyone.
+        </p>
+    </div>
+
+</section>
+
+<!-- ================= CERTIFICATIONS ================= -->
+<section class="section-title">
+    <h2>Our Certifications</h2>
+</section>
+
+<section class="grid certificates-grid">
+
+    <!-- CSC -->
+    <div class="card certificate-card" onclick="openCert(this)">
+        <img src="images/certificate/CSC_CERTIFICATE.jpg"
+             alt="CSC Certificate"
+             class="certificate-img"
+             onclick="openImage(this)">
+        <h3>CSC Certificate</h3>
+    </div>
+
+    <!-- IRCTC -->
+    <div class="card certificate-card" onclick="openCert(this)">
+        <img src="images/certificate/IRCTC_CERTIFICATE.jpg"
+             alt="IRCTC Certificate"
+             class="certificate-img"
+             onclick="openImage(this)">
+        <h3>IRCTC Authorized</h3>
+    </div>
+
+    <!-- Oath -->
+    <div class="card certificate-card" onclick="openCert(this)">
+        <img src="images/certificate/Oath_Certificate.jpg"
+             alt="Oath Certificate"
+             class="certificate-img"
+             onclick="openImage(this)">
+        <h3>Oath Certificate</h3>
+    </div>
+
+    <!-- RedBus -->
+    <div class="card certificate-card" onclick="openCert(this)">
+        <img src="images/certificate/redBus_CSC.jpg"
+             alt="RedBus CSC Certificate"
+             class="certificate-img"
+             onclick="openImage(this)">
+        <h3>RedBus Partner</h3>
+    </div>
+
+    <!-- TEC -->
+    <div class="card certificate-card" onclick="openCert(this)">
+        <img src="images/certificate/tec_certificate.jpg"
+             alt="TEC Certificate"
+             class="certificate-img"
+             onclick="openImage(this)">
+        <h3>TEC Certificate</h3>
+    </div>
+
+</section>
+
+<!-- ================= HELP ================= -->
+<section class="grid">
+    <div class="card">
+        <div class="card-icon">💬</div>
+        <h3>Need Help?</h3>
+        <p>
+            Visit ANVI COMPUTER for trusted
+            digital & government services.
+        </p>
+        <span class="card-btn"
+              onclick="openWhatsApp('Hello, I want information about ANVI COMPUTER services.')">
+            WhatsApp
+        </span>
+    </div>
+</section>
+
+</main>
+
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp"
+   href="javascript:void(0)"
+   onclick="openWhatsApp('Hello, I want to contact ANVI COMPUTER.')"
+   aria-label="Chat on WhatsApp">
+   <span class="wa-icon"></span>
+</a>
+<!-- ================= CERTIFICATE PREVIEW LIGHTBOX ================= -->
+<div id="certPreview" class="cert-preview">
+  <span class="cert-close" onclick="closeCert()">×</span>
+  <img id="certPreviewImg" alt="Certificate Preview">
+</div>
+
+</body>
+</html>

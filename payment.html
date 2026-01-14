@@ -1,0 +1,174 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Payment | ANVI COMPUTER</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <link rel="icon" type="image/png" href="LOGO.png">
+    <link rel="stylesheet" href="CSS/css.css">
+
+    <script src="JS/data.js"></script>
+    <script src="JS/header.js"></script>
+    <script src="JS/footer.js"></script>
+    <script src="JS/js.js" defer></script>
+</head>
+
+<body>
+
+<main class="content">
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+    <h1>Payment Options</h1>
+    <p>Secure & Verified Payment Methods</p>
+</section>
+
+<!-- ================= UPI PAYMENT (FULL WIDTH) ================= -->
+<section class="grid">
+
+<div class="card" style="grid-column:1/-1;">
+
+  <div style="display:flex;flex-wrap:wrap;gap:20px;align-items:center;">
+
+    <!-- LEFT SIDE -->
+    <div style="flex:1;min-width:260px;">
+      <div class="card-icon">📱</div>
+      <h3>UPI Payment (QR Generator)</h3>
+
+      <p>
+        UPI ID:<br>
+        <b>8881666006@okbizaxis</b>
+      </p>
+
+      <p style="margin-top:10px;">
+        Enter Amount (₹1 – ₹1,00,000):
+      </p>
+
+      <input type="number"
+             id="upiAmount"
+             min="1"
+             max="100000"
+             placeholder="Enter amount"
+             style="width:100%;padding:10px;border-radius:10px;border:1px solid #ddd;margin-bottom:10px;">
+
+      <span class="card-btn" onclick="generateQR()">
+        Generate QR Code
+      </span>
+
+      <span class="card-btn"
+            style="margin-left:10px;"
+            onclick="sendPaymentRequest()">
+        Send Screenshot on WhatsApp
+      </span>
+    </div>
+
+    <!-- RIGHT SIDE -->
+    <div style="flex:1;min-width:220px;text-align:center;">
+      <div id="qrBox">
+        <p style="font-size:13px;color:#777;">
+          QR will appear here after entering amount
+        </p>
+      </div>
+    </div>
+
+  </div>
+
+</div>
+
+</section>
+
+<!-- ================= OTHER PAYMENT METHODS ================= -->
+<section class="grid">
+
+<!-- CASH -->
+<div class="card">
+  <div class="card-icon">💵</div>
+  <h3>Cash Payment</h3>
+  <p>
+    Pay directly at<br>
+    <b>ANVI COMPUTER</b>
+  </p>
+</div>
+
+<!-- BANK -->
+<div class="card">
+  <div class="card-icon">🏦</div>
+  <h3>Bank Transfer</h3>
+  <p>
+    IMPS / NEFT / RTGS<br>
+    Available
+  </p>
+
+  <span class="card-btn"
+        onclick="openWhatsApp('Hello, please share bank account details for payment.')">
+    Request Bank Details
+  </span>
+</div>
+
+<!-- HELP -->
+<div class="card">
+  <div class="card-icon">💬</div>
+  <h3>Payment Help</h3>
+  <p>
+    Facing payment issues?<br>
+    Contact us.
+  </p>
+
+  <span class="card-btn"
+        onclick="openWhatsApp('Hello, I need help with payment.')">
+    WhatsApp Support
+  </span>
+</div>
+
+</section>
+
+</main>
+
+<!-- FLOATING WHATSAPP -->
+<a class="whatsapp"
+   href="javascript:void(0)"
+   onclick="openWhatsApp('Hello, I need help with payment.')"
+   aria-label="Chat on WhatsApp">
+  <span class="wa-icon"></span>
+</a>
+
+<!-- ================= PAGE SCRIPT ================= -->
+<script>
+const UPI_ID = "8881666006@okbizaxis";
+
+function generateQR(){
+  const amountInput = document.getElementById("upiAmount");
+  const amount = Number(amountInput.value);
+  const qrBox = document.getElementById("qrBox");
+
+  if(!amount || amount < 1 || amount > 100000){
+    alert("Amount must be between ₹1 and ₹1,00,000");
+    amountInput.focus();
+    return;
+  }
+
+  const upiURL = `upi://pay?pa=${UPI_ID}&am=${amount}&cu=INR`;
+
+  qrBox.innerHTML = `
+    <img
+      src="https://api.qrserver.com/v1/create-qr-code/?size=220x220&data=${encodeURIComponent(upiURL)}"
+      alt="UPI QR Code"
+      style="border-radius:12px;"
+    >
+    <p style="margin-top:8px;font-size:13px;color:#555;">
+      Scan & Pay ₹${amount}
+    </p>
+  `;
+}
+
+function sendPaymentRequest(){
+  const amount = document.getElementById("upiAmount").value || "____";
+  openWhatsApp(
+    `Hello, I have paid ₹${amount} via UPI. Please find the payment screenshot for confirmation.`
+  );
+}
+</script>
+
+</body>
+</html>
